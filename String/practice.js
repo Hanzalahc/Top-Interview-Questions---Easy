@@ -202,71 +202,84 @@ const isPalindrome = function (s) {
 
 /*
 
+const myAtoi = function (s) {
+  // handle 0 length case
+  if (s.length === 0) {
+    return 0;
+  }
 
+  let data = [];
+  let isNegative = false;
+
+  for (let i = 0; i < s.length; i++) {
+    let element = s[i];
+
+    // handle leading whilespace case " "
+
+    if (element === " " && data.length === 0 && !isNegative) {
+      continue;
+    }
+
+    // handle first + or -
+
+    if (
+      (element === "+" || element === "-") &&
+      data.length === 0 &&
+      !isNegative
+    ) {
+      isNegative = element;
+      continue;
+    }
+
+    // handle leading zero
+
+    if (element === "0" && data.length === 0 && isNegative) {
+      continue;
+    }
+
+    // handle push and break case
+
+    if (element >= "0" && element <= "9") {
+      data.push(element);
+    } else {
+      break;
+    }
+  }
+
+  if (data.length === 0) {
+    return 0;
+  }
+
+  let str = data.join("");
+
+  let resNumber = parseInt(str);
+  // handle negative sign case
+
+  if (isNegative) {
+    if (isNegative === "-") {
+      resNumber = -resNumber;
+    }
+  }
+
+  // handle Rounding case
+
+  if (resNumber <= -(2 ** 31)) {
+    return -(2 ** 31);
+  }
+
+  if (resNumber >= 2 ** 31 - 1) {
+    return 2 ** 31 - 1;
+  }
+
+  return resNumber;
+};
 
 */
 
-// Runtime: 2 ms Your runtime beats 52.73 % of javascript submissions.
-// Memory Usage: 56.3 MB Your memory usage beats 68.69 % of javascript submissions.
-// const myAtoi = function (s) {
-//   if (s.length === 0) {
-//     return 0;
-//   }
 
-//   let dataForStr = [];
-//   let isNegavtive = false;
+// Q7 Implement strStr()
 
-//   for (const element of s) {
-//     if (element === " " && dataForStr.length === 0 && !isNegavtive) {
-//       continue;
-//     }
 
-//     if (
-//       (element === "+" || element === "-") &&
-//       !isNegavtive &&
-//       dataForStr.length === 0
-//     ) {
-//       isNegavtive = element;
-//          continue;
-//     }
-
-//     if (element === "0" && dataForStr.length === 0 && isNegavtive) {
-//       continue;
-//     }
-
-//     if (element >= "0" && element <= "9") {
-//       dataForStr.push(element);
-//     } else {
-//       break;
-//     }
-//   }
-
-//     if (dataForStr.length === 0) {
-//     return 0
-//   }
-
-//   let strToInteger = parseInt(dataForStr.join(""));
-
-//   if (isNegavtive) {
-//     if (isNegavtive === "-") {
-//       strToInteger = -strToInteger;
-//     }
-//   }
-
-//   if (strToInteger < -(2 ** 31)) {
-//     return -(2 ** 31);
-//   }
-
-//   if (strToInteger > 2 ** 31 - 1) {
-//     return 2 ** 31 - 1;
-//   }
-
-//   return strToInteger;
-// };
-
-const myAtoi = function (s) {};
-
-// console.log(myAtoi("+-12"));
 
 // const strStr = function (haystack, needle) {
 //   if (needle.length === 0) {
@@ -527,19 +540,4 @@ const myAtoi = function (s) {};
 
 // console.log(longestCommonPrefix(["dog", "racecar", "car"]));
 
-const reverseString = function (s) {
-  let startPointer = 0;
-  let endPointer = s.length - 1;
 
-  for (let i = 0; i < s.length; i++) {
-    if (startPointer === endPointer) {
-      return;
-    }
-
-    let temp = s[startPointer];
-    s[startPointer] = s[endPointer];
-    s[endPointer] = temp;
-    startPointer++;
-    endPointer--;
-  }
-};
