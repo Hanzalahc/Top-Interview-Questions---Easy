@@ -100,4 +100,72 @@ const partitionArray = function (nums, pivot) {
 
 */
 
+// Q5 Contains Duplicate
+
+/*
+
+// brute force O(n^2)
+const containsDuplicate = function (nums) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] === nums[j]) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+// Optimize
+
+const containsDuplicate = function (nums) {
+  let seen = new Set();
+
+  for (const element of nums) {
+    if (seen.has(element)) {
+      return true;
+    }
+
+    seen.add(element);
+  }
+  return false;
+};
+
+*/
+
+// Q6 Single Number
+
+/*
+
+const singleNumber = function (nums) {
+  if (nums.length === 1) return nums[0];
+
+  let dataforNums = {};
+
+  for (const element of nums) {
+    dataforNums[element] = (dataforNums[element] || 0) + 1;
+  }
+
+  for (const element of nums) {
+    if (dataforNums[element] === 1) {
+      return element;
+    }
+  }
+};
+
+
+// optimal with O(1) space
+
+const singleNumber = function (nums) {
+ 
+  let result = 0
+
+  for (const element of nums) {
+    result ^= element
+  }
+  return element
+};
+
+
+*/
 
