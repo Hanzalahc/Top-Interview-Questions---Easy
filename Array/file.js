@@ -40,3 +40,64 @@ const maxProfit = function (prices) {
 
 
 */
+
+// Q3 Rotate Array
+
+/*
+
+short brute force method but Time Limit Exceeded 
+
+const rotate = function (nums, k) {
+  if (nums.length === 0) return;
+
+  k = k % nums.length;
+
+  for (let i = 0; i < k; i++) {
+    const last = nums.pop();
+    nums.unshift(last);
+  }
+};
+
+
+optimized method 
+
+const rotate = function (nums, k) {
+  k = k % nums.length;
+
+  const end = nums.slice(-k);
+
+  const start = nums.slice(0, nums.length - k);
+
+  const rotated = end.concat(start);
+
+  for (let i = 0; i < nums.length; i++) {
+    nums[i] = rotated[i];
+  }
+};
+
+
+
+*/
+
+// Q4 not from collection but from interview | pivot point
+
+/*
+
+const partitionArray = function (nums, pivot) {
+  let smaller = [];
+  let greater = [];
+
+  for (const element of nums) {
+    if (element < pivot) {
+      smaller.push(element);
+    } else {
+      greater.push(element);
+    }
+  }
+
+  return [...smaller, ...greater].sort((a, b) => a - b);
+};
+
+*/
+
+
