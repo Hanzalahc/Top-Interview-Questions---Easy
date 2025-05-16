@@ -169,3 +169,58 @@ const singleNumber = function (nums) {
 
 */
 
+// Q7 Intersection of Two Arrays II
+
+/*
+
+const intersect = function (nums1, nums2) {
+  let data = {};
+
+  let results = [];
+
+  for (const element of nums1) {
+    data[element] = (data[element] || 0) + 1;
+  }
+
+  for (const element of nums2) {
+    if (data[element]) {
+      results.push(element);
+      data[element]--;
+    }
+  }
+  return results;
+};
+
+*/
+
+// Q8 Plus One
+
+/*
+
+only works for small numbers not large
+const plusOne = function (digits) {
+  let arrToStr = digits.join("");
+
+  let strToNumber = parseInt(arrToStr) + 1;
+
+  let numToStr = strToNumber.toString();
+
+  return numToStr.split("");
+};
+
+const plusOne = function (digits) {
+  for (let i = digits.length - 1; i >= 0; i--) {
+    if (digits[i] < 9) {
+      digits[i] += 1;
+      return digits;
+    }
+
+    digits[i] = 0;
+  }
+
+  // when arr is like [9,9,9]
+  digits.unshift(1);
+  return digits;
+};
+
+*/
