@@ -224,3 +224,82 @@ const plusOne = function (digits) {
 };
 
 */
+
+// Q9 Move Zeroes
+
+/*
+
+// good solution but not inplace and more operations and doesn't solve [0,0,1] case
+const moveZeroes = function (nums) {
+  if (nums.length === 1) {
+    return nums;
+  }
+
+  const arrLength = nums.length;
+
+  for (let i = 0; i < arrLength; i++) {
+    if (nums[i] === 0) {
+      nums.splice(i, 1);
+      nums.push(0);
+    }
+  }
+
+  return nums;
+};
+
+// optimized approch
+
+const moveZeroes = function(nums) {
+  let insertPos = 0;
+
+  
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[insertPos] = nums[i];
+      insertPos++;
+    }
+  }
+
+ 
+  for (let i = insertPos; i < nums.length; i++) {
+    nums[i] = 0;
+  }
+
+  return nums;
+};
+
+*/
+
+
+// Q10 Two sum
+
+
+/*
+
+const twoSum = function (nums, target) {
+  if (nums.length === 1) {
+    return [0];
+  }
+
+  if (nums.length === 2) {
+    return [0, 1];
+  }
+
+  let firstIndex = 0;  
+  let secondIndex = 1; 
+
+  while (firstIndex < nums.length) {
+    if (nums[firstIndex] + nums[secondIndex] === target) {
+      return [firstIndex, secondIndex];
+    }
+
+    if (secondIndex < nums.length - 1) {
+      secondIndex++;
+    } else {
+      firstIndex++;
+      secondIndex = firstIndex + 1;
+    }
+  }
+};
+
+*/
