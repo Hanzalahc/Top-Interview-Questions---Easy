@@ -270,9 +270,7 @@ const moveZeroes = function(nums) {
 
 */
 
-
 // Q10 Two sum
-
 
 /*
 
@@ -301,5 +299,65 @@ const twoSum = function (nums, target) {
     }
   }
 };
+
+*/
+
+// Q11 Valid Sudoku
+
+/*
+
+const isValidSudoku = function (board) {
+  const rows = new Array(9).fill(0).map(() => new Set());
+  const cols = new Array(9).fill(0).map(() => new Set());
+  const boxes = new Array(9).fill(0).map(() => new Set());
+
+  for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+      let value = board[r][c];
+
+      if (value === ".") {
+        continue;
+      }
+
+      let boxIndex = Math.floor(r / 3) * 3 + Math.floor(c / 3);
+
+      if (
+        rows[r].has(value) ||
+        cols[c].has(value) ||
+        boxes[boxIndex].has(value)
+      ) {
+        return false;
+      }
+
+      rows[r].add(value);
+      cols[c].add(value);
+      boxes[boxIndex].add(value);
+    }
+  }
+  return true;
+};
+
+
+*/
+
+// Q12 Rotate Image
+
+/*
+
+const rotate = function (matrix) {
+  const n = matrix.length;
+
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+    }
+  }
+
+  for (const element of matrix) {
+    element.reverse();
+  }
+  return matrix;
+};
+
 
 */
