@@ -300,6 +300,35 @@ const twoSum = function (nums, target) {
   }
 };
 
+const twoSum = function (nums, target) {
+  const seen = new Map();
+
+  for (let i = 0; i < nums.length; i++) {
+    let complement = target - nums[i];
+
+    if (seen.has(complement)) {
+      return [seen.get(complement), i];
+    }
+    seen.set(nums[i], i);
+  }
+};
+
+function hasTwoSum(nums, target) {
+  const seen = new Set();
+
+  for (let num of nums) {
+    const complement = target - num;
+    if (seen.has(complement)) {
+      return true; 
+    }
+    seen.add(num);
+  }
+
+  return false;
+}
+
+
+
 */
 
 // Q11 Valid Sudoku
